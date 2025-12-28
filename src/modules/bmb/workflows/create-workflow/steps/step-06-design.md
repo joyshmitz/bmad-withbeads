@@ -14,7 +14,7 @@ targetWorkflowPath: '{bmb_creations_output_folder}/workflows/{new_workflow_name}
 workflowPlanFile: '{targetWorkflowPath}/workflow-plan-{new_workflow_name}.md'
 
 # Task References
-advancedElicitationTask: '{project-root}/_bmad/core/tasks/advanced-elicitation.xml'
+advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
 partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 # Template References
 # No template needed - will append design details directly to workflow plan
@@ -96,9 +96,9 @@ Read: {project-root}/_bmad/bmb/docs/workflows/templates/step-1b-template.md
 
 This shows the continuation step pattern for workflows that might take multiple sessions.
 
-Based on the approved plan, collaboratively design:
+Based on the approved plan, collaboratively design the info to answer the following for the build plan:
 
-- How many major steps does this workflow need? (Recommend 3-7)
+- How many major steps does this workflow need?
 - What is the goal of each step?
 - Which steps are optional vs required?
 - Should any steps repeat or loop?

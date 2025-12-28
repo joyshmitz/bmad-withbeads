@@ -13,7 +13,7 @@ brainstormContext: '{workflow_path}/data/brainstorm-context.md'
 brainstormWorkflow: '{project-root}/_bmad/core/workflows/brainstorming/workflow.md'
 
 # Task References
-advancedElicitationTask: '{project-root}/_bmad/core/tasks/advanced-elicitation.xml'
+advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
 partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 ---
 
@@ -90,7 +90,7 @@ Wait for clear user response (yes/no or y/n).
 
 - Load brainstorming workflow: `{brainstormWorkflow}`
 - Pass context data: `{brainstormContext}`
-- Execute brainstorming session scoped specifically to brainstorming a new agent.
+- Execute brainstorming session scoped specifically utilizing the brainstormContext to guide the scope and outcome
 - Capture all brainstorming output for next step
 - Return to this step after brainstorming completes
 

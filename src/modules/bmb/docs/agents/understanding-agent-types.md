@@ -7,23 +7,23 @@ ALL agent types can:
 - ✓ Write to {output_folder}, {project-root}, or anywhere on system
 - ✓ Update artifacts and files
 - ✓ Execute bash commands
-- ✓ Use core variables (\_bmad, {output_folder}, etc.)
+- ✓ Use core variables (_bmad, {output_folder}, etc.)
 - ✓ Have complex prompts and logic
 - ✓ Invoke external tools
 
 ## What Actually Differs
 
-| Feature                | Simple        | Expert                | Module             |
-| ---------------------- | ------------- | --------------------- | ------------------ |
-| **Self-contained**     | ✓ All in YAML | Sidecar files         | Sidecar optional   |
-| **Persistent memory**  | ✗ Stateless   | ✓ memories.md         | ✓ If needed        |
-| **Knowledge base**     | ✗             | ✓ sidecar/knowledge/  | Module/shared      |
-| **Domain restriction** | ✗ System-wide | ✓ Sidecar only        | Optional           |
-| **Personal workflows** | ✗             | ✓ Sidecar workflows\* | ✗                  |
-| **Module workflows**   | ✗             | ✗                     | ✓ Shared workflows |
-| **Team integration**   | Solo utility  | Personal assistant    | Team member        |
+| Feature                | Simple        | Expert               | Module             |
+| ---------------------- | ------------- | -------------------- | ------------------ |
+| **Self-contained**     | ✓ All in YAML | Sidecar files        | Sidecar optional   |
+| **Persistent memory**  | ✗ Stateless   | ✓ memories.md        | ✓ If needed        |
+| **Knowledge base**     | ✗             | ✓ sidecar/knowledge/ | Module/shared      |
+| **Domain restriction** | ✗ System-wide | ✓ Sidecar only       | Optional           |
+| **Personal workflows** | ✗             | ✓ Sidecar workflows  | ✗                  |
+| **Module workflows**   | ✗             | ✗                    | ✓ Shared workflows |
+| **Team integration**   | Solo utility  | Personal assistant   | Team member        |
 
-\*Expert agents CAN have personal workflows in sidecar if critical_actions loads workflow engine
+Expert agents CAN have personal workflows in sidecar if critical_actions loads workflow engine
 
 ## The Same Agent, Three Ways
 

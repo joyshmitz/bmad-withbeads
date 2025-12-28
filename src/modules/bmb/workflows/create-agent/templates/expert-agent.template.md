@@ -28,28 +28,22 @@ Domain-specific agents with persistent memory, sidecar files, and restricted acc
 ```yaml
 agent:
   metadata:
+    id: _bmad/agents/{agent-name}/{agent-name}.md
     name: 'Persona Name'
     title: 'Agent Title'
     icon: 'emoji'
-    type: 'expert'
+    module: stand-alone # or module name
 
   persona:
-    role: 'Domain Expert with specialized capability'
+    role: |
+      First-person description of primary function (1-2 sentences)
 
     identity: |
-      Background and expertise in first-person voice.
-      {{#if user_preference}}
-      Customization based on install_config.
-      {{/if}}
+      Background, experience, specializations in first-person (2-3 sentences)
 
     communication_style: |
-      {{#if tone_style == "gentle"}}
-      Gentle and supportive communication...
-      {{/if}}
-      {{#if tone_style == "direct"}}
-      Direct and efficient communication...
-      {{/if}}
-      I reference past conversations naturally.
+      1-2 short sentence describe how the agent speaks and communicates
+
 
     principles:
       - Core belief about the domain
@@ -89,29 +83,17 @@ agent:
         Reference stored information naturally.
 
   menu:
-    - trigger: action1
+    - trigger: MF or fuzzy match on main function
       action: '#main-function'
-      description: 'Primary agent function'
+      description: '[MF] Main agent function'
 
-    - trigger: remember
+    - trigger: SM or fuzzy match on save-memory
       action: 'Update ./{agent-name}-sidecar/memories.md with session insights'
-      description: 'Save what we discussed today'
+      description: '[SM] Save memory what we discussed today'
 
-    - trigger: insight
+    - trigger: RI or fuzzy match on record-insight
       action: 'Document breakthrough in ./{agent-name}-sidecar/breakthroughs.md'
-      description: 'Record a significant insight'
-
-    - multi: "[DF] Do Foo or start [CH] Chat with expert"
-      triggers:
-        - do-foo
-            - input: [DF] or fuzzy match on do foo
-            - action: '#main-action'
-            - data: what is being discussed or suggested with the command, along with custom party custom agents if specified
-            - type: action
-        - expert-chat:
-            - input: [CH] or fuzzy match validate agent
-            - action: agent responds as expert based on its persona to converse
-            - type: action
+      description: '[RI] Record a significant insight'
 
   install_config:
     compile_time_only: true
@@ -313,7 +295,7 @@ critical_actions:
 
 1. **Load sidecar files in critical_actions** - Must be explicit and MANDATORY
 2. **Enforce domain restrictions** - Clear boundaries prevent scope creep
-3. **Use \_bmad/\_memory/[agentname]-sidcar/ paths** - For reference to any sidecar content
+3. **Use _bmad/_memory/[agentname]-sidcar/ paths** - For reference to any sidecar content
 4. **Design for memory growth** - Structure sidecar files for accumulation
 5. **Reference past naturally** - Don't dump memory, weave it into conversation
 6. **Separate concerns** - Memories, instructions, knowledge in distinct files
@@ -356,8 +338,8 @@ identity: |
 - [ ] Sidecar folder structure created and populated
 - [ ] memories.md has clear section structure
 - [ ] instructions.md contains core directives
-- [ ] Menu actions reference \_bmad/\_memory/[agentname]-sidcar/ correctly if needing sidecar content reference
-- [ ] File paths use \_bmad/\_memory/[agentname]-sidcar/ to reference where the file will be after sidecar content is installed
+- [ ] Menu actions reference _bmad/_memory/[agentname]-sidcar/ correctly if needing sidecar content reference
+- [ ] File paths use _bmad/_memory/[agentname]-sidcar/ to reference where the file will be after sidecar content is installed
 - [ ] Install config personalizes sidecar references
 - [ ] Agent folder named consistently: `{agent-name}/`
 - [ ] YAML file named: `{agent-name}.agent.yaml`

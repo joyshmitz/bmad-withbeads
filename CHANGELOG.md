@@ -1,5 +1,224 @@
 # Changelog
 
+## [6.0.0-alpha.21]
+
+**Release: December 27, 2025**
+
+### 🌟 Key Highlights
+
+1. **Consistent Menu System**: All agents now use standardized 2-letter menu codes (e.g., "rd" for research, "ca" for create-architecture)
+2. **Planning Artifacts Architecture**: Phase 1-3 workflows now properly segregate planning artifacts from documentation
+3. **Windows Installer Fixed Again**: Updated inquirer to resolve multiselection tool issues
+4. **Auto-Injected Features**: Chat and party mode automatically injected into all agents
+5. **Validation System**: All agents now pass comprehensive new validation checks
+
+### 🎯 Consistent Menu System (Major Feature)
+
+**Standardized 2-Letter Codes:**
+
+- **Compound Menu Triggers**: All agents now use consistent 2-letter compound trigger format (e.g., `bmm-rd`, `bmm-ca`)
+- **Improved UX**: Shorter, more memorable command shortcuts across all modules
+- **Module Prefixing**: Menu items properly scoped by module prefix (bmm-, bmgd-, cis-, bmb-)
+- **Universal Pattern**: All 22 agents updated to follow the same menu structure
+
+**Agent Updates:**
+
+- **BMM Module**: 9 agents with standardized menus (pm, analyst, architect, dev, ux-designer, tech-writer, sm, tea, quick-flow-solo-dev)
+- **BMGD Module**: 6 agents with standardized menus (game-architect, game-designer, game-dev, game-qa, game-scrum-master, game-solo-dev)
+- **CIS Module**: 6 agents with standardized menus (innovation-strategist, design-thinking-coach, creative-problem-solver, brainstorming-coach, presentation-master, storyteller)
+- **BMB Module**: 3 agents with standardized menus (bmad-builder, agent-builder, module-builder, workflow-builder)
+- **Core Module**: BMAD Master agent updated with consistent menu patterns
+
+### 📁 Planning Artifacts Architecture
+
+**Content Segregation Implementation:**
+
+- **Phase 1-3 Workflows**: All planning workflows now use `planning_artifacts` folder (default changed from `docs`)
+- **Proper Input Discovery**: Workflows follow consistent input discovery patterns from planning artifacts
+- **Output Management**: Planning artifacts properly separated from long-term documentation
+- **Affected Workflows**:
+  - Product Brief: Updated discovery and output to planning artifacts
+  - PRD: Fixed discovery and output to planning artifacts
+  - UX Design: Updated all steps for proper artifact handling
+  - Architecture: Updated discovery and output flow
+  - Game Architecture: Updated for planning artifacts
+  - Story Creation: Updated workflow output paths
+
+**File Organization:**
+
+- **Planning Artifacts**: Ephemeral planning documents (prd.md, product-brief.md, ux-design.md, architecture.md)
+- **Documentation**: Long-term project documentation (separate from planning)
+- **Module Configuration**: BMM and BMGD modules updated with proper default paths
+
+### 🪟 Windows Installer Fixes
+
+**Inquirer Multiselection Fix:**
+
+- **Updated Inquirer Version**: Resolved tool multiselection issues that were causing Windows installer failures
+- **Better Compatibility**: Improved handling of checkbox and multi-select prompts on Windows(?)
+
+### 🤖 Agent System Improvements
+
+**Auto-Injected Features:**
+
+- **Chat Mode**: Automatically injected into all agents during compilation
+- **Party Mode**: Automatically injected into all agents during compilation
+- **Reduced Manual Configuration**: No need to manually add these features to agent definitions
+- **Consistent Behavior**: All agents now have uniform access to chat and party mode capabilities
+
+**Agent Normalization:**
+
+- **All Agents Validated**: All 22 agents pass comprehensive validation checks
+- **Schema Enforcement**: Proper compound trigger validation implemented
+- **Metadata Cleanup**: Removed obsolete and inconsistent metadata patterns
+- **Test Fixtures Updated**: Validation test fixtures aligned with new requirements
+
+### 🔧 Bug Fixes & Cleanup
+
+**Docusaurus Merge Recovery:**
+
+- **Restored Agent Files**: Fixed agent files accidentally modified in Docusaurus merge (PR #1191)
+- **Reference Cleanup**: Removed obsolete agent reference examples (journal-keeper, security-engineer, trend-analyst)
+- **Test Fixture Updates**: Aligned test fixtures with current validation requirements
+
+**Code Quality:**
+
+- **Schema Improvements**: Enhanced agent schema validation with better error messages
+- **Removed Redundancy**: Cleaned up duplicate and obsolete agent definitions
+- **Installer Cleanup**: Removed unused configuration code from BMM installer
+
+**Planning Artifacts Path:**
+- Default: `planning_artifacts/` (configurable in module.yaml)
+- Previous: `docs/`
+- Benefit: Clear separation between planning work and permanent documentation
+
+---
+
+## [6.0.0-alpha.20]
+
+**Release: December 23, 2025**
+
+### 🌟 Key Highlights
+
+1. **Windows Installer Fixed**: Better compatibility with inquirer v9.x upgrade
+2. **Path Segregation**: Revolutionary content organization separating ephemeral artifacts from permanent documentation
+3. **Custom Installation Messages**: Configurable intro/outro messages for professional installation experience
+4. **Enhanced Upgrade Logic**: Two-version auto upgrades with proper config preservation
+5. **Quick-Dev Refactor**: Sharded format with comprehensive adversarial review
+6. **Improved Quality**: Streamlined personas, fixed workflows, and cleaned up documentation
+7. **Doc Site Auto Generation**; Auto Generate a docusaurus site update on merge
+
+### 🪟 Windows Installer (hopefully) Fixed
+
+**Inquirer Upgrade:**
+
+- **Updated to v9.x**: Upgraded inquirer package for better Windows support
+- **Improved Compatibility**: Better handling of Windows terminal environments
+- **Enhanced UX**: More reliable interactive prompts across platforms
+
+### 🎯 Path Segregation Implementation (Major Feature)
+
+**Revolutionary Content Organization:**
+
+- **Phase 1-4 Path Segregation**: Implemented new BM paths across all BMM and BMGD workflows
+- **Planning vs Implementation Artifacts**: Separated ephemeral Phase 4 artifacts from permanent documentation
+- **Optimized File Organization**: Better structure differentiating planning artifacts from long-term project documentation
+- **Backward Compatible**: Existing installations continue working while preparing for optimized content organization
+- **Module Configuration Updates**: Enhanced module.yaml with new path configurations for all phases
+- **Workflow Path Updates**: All 90+ workflow files updated with proper path configurations
+
+**Documentation Cleanup:**
+
+- **Removed Obsolete Documentation**: Cleaned up 3,100+ lines of outdated documentation
+- **Streamlined README Files**: Consolidated and improved module documentation
+- **Enhanced Clarity**: Removed redundant content and improved information architecture
+
+### 💬 Installation Experience Enhancements
+
+**Custom Installation Messages:**
+
+- **Configurable Intro/Outro Messages**: New install-messages.yaml file for customizable installation messages
+- **Professional Installation Flow**: Custom welcome messages and completion notifications
+- **Module-Specific Messaging**: Tailored messages for different installation contexts
+- **Enhanced User Experience**: More informative and personalized installation process
+
+**Core Module Improvements:**
+
+- **Always Ask Questions**: Core module now always prompts for configuration (no accept defaults)
+- **Better User Engagement**: Ensures users actively configure their installation
+- **Improved Configuration Accuracy**: Reduces accidental acceptance of defaults
+
+### 🔧 Upgrade & Configuration Management
+
+**Two-Version Auto Upgrade:**
+
+- **Smarter Upgrade Logic**: Automatic upgrades now span 2 versions (e.g., .16 → .18)
+- **Config Variable Preservation**: Ensures all configuration variables are retained during quick updates
+- **Seamless Updates**: Quick updates now preserve custom settings properly
+- **Enhanced Upgrade Safety**: Better handling of configuration across version boundaries
+
+### 🤖 Workflow Improvements
+
+**Quick-Dev Workflow Refactor (PR #1182):**
+
+- **Sharded Format Conversion**: Converted quick-dev workflow to modern step-file format
+- **Adversarial Review Integration**: Added comprehensive self-check and adversarial review steps
+- **Enhanced Quality Assurance**: 6-step process with mode detection, context gathering, execution, self-check, review, and resolution
+- **578 New Lines Added**: Significant expansion of quick-dev capabilities
+
+**BMGD Workflow Fixes:**
+
+- **workflow-status Filename Correction**: Fixed incorrect filename references (PR #1172)
+- **sprint-planning Update**: Added workflow-status update to game-architecture completion
+- **Path Corrections**: Resolved dead references and syntax errors (PR #1164)
+
+### 🎨 Code Quality & Refactoring
+
+**Persona Streamlining (PR #1167):**
+
+- **Quick-Flow-Solo-Dev Persona**: Streamlined for clarity and accuracy
+- **Improved Agent Behavior**: More focused and efficient solo development support
+
+**Package Management:**
+
+- **package-lock.json Sync**: Ensured version consistency (PR #1168)
+- **Dependency Cleanup**: Reduced package-lock bloat significantly
+
+**Prettier Configuration:**
+
+- **Markdown Underscore Protection**: Prettier will no longer mess up underscores in markdown files
+- **Disabled Auto-Fix**: Markdown formatting issues now handled more intelligently
+- **Better Code Formatting**: Improved handling of special characters in documentation
+
+### 📚 Documentation Updates
+
+**Sponsor Attribution:**
+
+- **DigitalOcean Sponsorship**: Added attribution for DigitalOcean support (PR #1162)
+
+**Content Reorganization:**
+
+- **Removed Unused Docs**: Eliminated obsolete documentation files
+- **Consolidated References**: Merged and reorganized technical references
+- **Enhanced README Files**: Improved module and workflow documentation
+
+### 🧹 Cleanup & Optimization
+
+**File Organization:**
+
+- **Removed Asterisk Insertion**: Eliminated unwanted asterisk insertions into agent files
+- **Removed Unused Commands**: Cleaned up deprecated command references
+- **Consolidated Duplication**: Reduced code duplication across multiple files
+- **Removed Unneeded Folders**: Cleaned up temporary and obsolete directory structures
+
+### 📊 Statistics
+
+- **23 commits** since alpha.19
+- **90+ workflow files** updated with new path configurations
+- **3,100+ lines of documentation** removed and reorganized
+- **578 lines added** to quick-dev workflow with adversarial review
+- **Major architectural improvement** to content organization
+
 ## [6.0.0-alpha.19]
 
 **Release: December 18, 2025**

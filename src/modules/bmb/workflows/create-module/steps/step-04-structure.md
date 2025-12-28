@@ -2,7 +2,7 @@
 installed_path: '{project-root}/_bmad/bmb/workflows/create-module'
 nextStepFile: '{installed_path}/steps/step-05-config.md'
 modulePlanFile: '{bmb_creations_output_folder}/{module_name}/module-plan-{module_name}.md'
-advancedElicitationTask: '{project-root}/_bmad/core/tasks/advanced-elicitation.xml'
+advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
 partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 ---
 
@@ -129,7 +129,7 @@ Create all directories in {bmb_creations_output_folder}/{module_name}/:
 3. **tasks/** - For task files (if tasks planned)
 4. **templates/** - For shared templates
 5. **data/** - For module data
-6. **\_module-installer/** - For installation configuration
+6. **_module-installer/** - For installation configuration
 
 ### 4. Create Placeholder README
 
